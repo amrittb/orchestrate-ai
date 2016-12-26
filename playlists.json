@@ -1,0 +1,12 @@
+{
+	"instruments" : {
+		"piano" : {
+			"playlistId" :  "PL93uzrz9f1_SzZ9LVu2T6EcigZuQM63Km"
+		}
+	},
+	"emotions" : {
+		"sad" : {
+			"playlistId" : "PL93uzrz9f1_SWKXTcRzwwHlfJ2tEgbDym"
+		}
+	}
+}
