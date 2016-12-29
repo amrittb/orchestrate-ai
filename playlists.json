@@ -5,8 +5,17 @@
 		}
 	},
 	"emotions" : {
+		"happy" : {
+			"playlistId" : "PL93uzrz9f1_QfKcwhmb1s0y4OvFtsx-RU"
+		},
+		"calm" : {
+			"playlistId" : "PL93uzrz9f1_SECWvO0H6Tz1mX7kojmFeV"
+		},
 		"sad" : {
 			"playlistId" : "PL93uzrz9f1_SWKXTcRzwwHlfJ2tEgbDym"
+		},
+		"angry" : {
+			"playlistId" : "PL93uzrz9f1_QSLeGDdE9gD73e7PjEVVWX"
 		}
 	}
 }
