@@ -1,0 +1,37 @@
+<Lee>
+Some velvet mornin' when I'm straight
+I'm gonna open up your gate
+And maybe tell you 'bout Phaedra
+And how she gave me life
+And how she made it end
+Some velvet mornin' when I'm straight
+
+	<Nancy>
+	Flowers growing on a hill, dragonflies and daffodils
+	Learn from us very much, look at us but do not touch
+	Phaedra is my name
+
+<Lee>
+Some velvet mornin' when I'm straight
+I'm gonna open up your gate
+And maybe tell you 'bout Phaedra
+And how she gave me life
+And how she made it end
+Some velvet mornin' when I'm straight
+
+	<Nancy>
+	Flowers are the things we know, secrets are the things we grow
+	Learn from us very much, look at us but do not touch
+	Phaedra is my name
+
+<Lee>  Some velvet mornin' when I'm straight
+	<Nancy> Flowers growing on a hill
+<Lee>  I'm gonna open up your gate
+	<Nancy>  dragonflies and daffodils
+<Lee> And maybe tell you 'bout Phaedra
+	<Nancy> Learn from us very much
+<Lee> And how she gave me life
+	<Nancy> look at us but do not touch
+FADE
+<Lee> And how she made it end
+ 
