@@ -1,0 +1,16 @@
+# bin/post_compile
+#!/usr/bin/env bash
+
+if [ -f bin/install_nltk_data ]; then
+    echo "-----> Running install_nltk_data"
+    chmod +x bin/install_nltk_data
+    bin/install_nltk_data
+fi
+
+if [ -f bin/run_training ]; then
+    echo "-----> Running run_training"
+    chmod +x bin/run_training
+    bin/run_training
+fi
+
+echo "-----> Post-compile done"

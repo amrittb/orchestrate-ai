@@ -1,0 +1,4 @@
+# bin/install_nltk_data
+#!/usr/bin/env bash
+
+(echo "import nltk"; echo "nltk.download(['wordnet','punkt'])") | python

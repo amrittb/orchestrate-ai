@@ -1,0 +1,5 @@
+# bin/run_training
+#!/usr/bin/env bash
+
+python ../trainer.py
+python ../lyrics_trainer.py
