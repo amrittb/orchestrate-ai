@@ -11,9 +11,9 @@ Orchestrate AI is a deep learning project which classifies music according to mo
 * [urllib3](https://urllib3.readthedocs.io/en/latest/)
 * [tqdm](https://pypi.python.org/pypi/tqdm)
 * [python-midi](https://github.com/vishnubob/python-midi)
+* [counter](https://docs.python.org/2/library/collections.html)
 * [tensorflow](https://tensorflow.org)
 * [nltk](http://www.nltk.org/)
-
 * [youtube-dl](https://rg3.github.io/youtube-dl/)
 
 ## Setup
@@ -49,14 +49,34 @@ For preparing data set run **prepare_dataset.py** script. It uses [simplejson](h
 python prepare_dataset.py
 ```
 
-## Training MIREX Data
+## Training MIREX MIDI Dataset
 Run **trainer.py** to train the given dataset. The dataset to be trained are placed in **midis** folder. It may take some time.
 ```sh
 python trainer.py
 ```
 
-## Getting Confidence Score
-Run **tester.py** with file location as an argument.
+## Getting Confidence Score for MIREX MIDI Dataset
+Run **predictor.py** with file location as an argument.
 ```sh
-python tester.py ~/music/testingmidi.midi
+python predictor.py ~/music/testingmidi.midi
+```
+
+## Training MIREX Lyrics Dataset
+Run **lyrics_trainer.py** to train the given dataset. The dataset to be trained are placed in **lyrics** folder. It may take some time.
+```sh
+python lyrics_trainer.py
+```
+
+## Getting Confidence Score for MIREX MIDI Dataset
+Run **lyrics_predictor.py**.
+
+Available options:
+* **-f**: File location of lyrics
+* **-s**: Lyrics string
+* **-h**: Help
+
+```sh
+python lyrics_predictor.py -f ~/lyrics/song_lyrics.txt
+python lyrics_predictor.py -s "Some song lyrics goes here."
+python lyrics_predictor.py -h
 ```
