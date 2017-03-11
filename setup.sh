@@ -4,7 +4,7 @@ echo "Use Python 2 currently because a dependency (python-midi) does not support
 
 pip install --upgrade tensorflow
 pip install --upgrade nltk
-pip install --upgrade tqdm python-midi simplejson urllib3
+pip install --upgrade tqdm python-midi simplejson urllib3 counter
 
 echo "Downloading NLTK data"
 (echo "import nltk"; echo "nltk.download('all')") | python
