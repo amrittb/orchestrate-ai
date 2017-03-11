@@ -1,10 +1,11 @@
 from flask import Flask, render_template, url_for, request,  send_from_directory
-import os
+import os, subprocess
 from werkzeug import secure_filename
 
 app = Flask(__name__)
 
-app.config['UPLOAD_FOLDER'] = 'uploads/'
+app.config['UPLOAD_FOLDER_MIDI'] = 'music/'
+app.config['UPLOAD_FOLDER_LYRIC'] = 'lyric/'
 app.config['ALLOWED_EXTENSIONS'] = set(['mid', 'txt'])
 
 def allowed_file(filename):
@@ -19,32 +20,33 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    # Get the name of the uploaded file
     file = request.files['file']
-    # Check if the file is one of the allowed types/extensions
     if file and allowed_file(file.filename):
         # Make the filename safe, remove unsupported chars
         filename = secure_filename(file.filename)
-        # Move the file form the temporal folder to
-        # the upload folder we setup
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        # Move the file form the temporal folder to the upload folder
+        filepath = os.path.join(app.config['UPLOAD_FOLDER_MIDI'], filename)
+        file.save(filepath)
+
         # Call python script to predict file
         # return labels for each category
-        return render_template('result.html')
+        confidence_score = subprocess.call('python predictor.py', filepath)
+        return render_template('result.html', confidence_score)
+
 
 @app.route('/upload_lyric', methods=['POST'])
 def upload_lyric():
-    # Get the name of the uploaded file
     file = request.files['file']
-    # Check if the file is one of the allowed types/extensions
     if file and allowed_file(file.filename):
         # Make the filename safe, remove unsupported chars
         filename = secure_filename(file.filename)
         # Move the file form the temporal folder to
-        # the upload folder we setup
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        # the upload folder
+        filepath = app.config(['UPLOAD_FOLDER_LYRIC'], filename)
+        file.save(os.path.join(filepath))
         # Call python script to predict file
         # return labels for each category
+        lyric_confidence_score = subprocess.call('python lyric_predictor.py', filepath)
         return render_template('result.html')
 
 
