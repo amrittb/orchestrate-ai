@@ -1,0 +1,67 @@
+
+html h1 div img body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.row {
+  margin:0px;
+}
+
+body {
+  background-color: #EF0024;
+
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.header {
+  position: relative;
+  width:100%;
+  height: auto;
+  color: white;
+  background-color: #EF0024;
+}
+
+.header h1{
+  text-align: center;
+  font-size: 50px;
+  margin: 20px 0px;
+  color: #F1FFBE;
+}
+
+#app {
+  background-color: #363432;
+}
+
+#record-player {
+  width: 33%;
+  left: 33%;
+  top: 200px;
+  position: absolute;
+  height: auto;
+}
+
+#record-player img{
+  width: 100%;
+  height: auto;
+  background-color: rgb(221, 114, 240);
+  -webkit-animation-name:;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes rotate {
+	  from { 	-webkit-transform:rotate(0deg); }
+  to { -webkit-transform:rotate(360deg); }
+}
+
+@-webkit-keyframes spinx {
+	  from { 	-webkit-transform:rotatex(0deg); }
+  to { -webkit-transform:rotatex(360deg); }
+}

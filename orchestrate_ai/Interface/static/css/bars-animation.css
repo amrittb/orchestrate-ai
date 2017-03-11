@@ -1,0 +1,39 @@
+#bars {
+    height: 100px;
+    left: 25%;
+    margin: -30px 0 0 -20px;
+    position: absolute;
+    top: 90%;
+    width: 75%;
+}
+
+.bar {
+   background: #363432;
+    bottom: 1px;
+    height: 100px;
+    position: absolute;
+    width: 60px;
+    animation: sound 0ms -1ms linear infinite alternate;
+}
+
+@keyframes sound {
+    0% {
+       opacity: .35;
+        height: 3px;
+    }
+    100% {
+        opacity: 1;
+        height: 120px;
+    }
+}
+
+.bar:nth-child(1)  { left: 1px; animation-duration: 574ms; }
+.bar:nth-child(2)  { left: 80px; animation-duration: 533ms; }
+.bar:nth-child(3)  { left: 160px; animation-duration: 507ms; }
+.bar:nth-child(4)  { left: 240px; animation-duration: 558ms; }
+.bar:nth-child(5)  { left: 320px; animation-duration: 500ms; }
+.bar:nth-child(6)  { left: 400px; animation-duration: 527ms; }
+.bar:nth-child(7)  { left: 480px; animation-duration: 541ms; }
+.bar:nth-child(8)  { left: 560px; animation-duration: 519ms; }
+.bar:nth-child(9)  { left: 640px; animation-duration: 587ms; }
+.bar:nth-child(10) { left: 720px; animation-duration: 542ms; }​
