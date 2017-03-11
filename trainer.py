@@ -1,33 +1,32 @@
-import os
+import sys
+import getopt
 import numpy as np
-from orchestrate_ai.mirex_dataset import dataset_manipulation, computation_graph
+from orchestrate_ai.mirex_dataset import trainer
 
-def main():
-	# Find midis folder
-	# Get all the subfolder
-	# Get all midi
-	
-	moods = ['Aggressive','Bittersweet','Happy','Humorous','Passionate']
-	songs = []
-	labels = []
+def main(argv):
+	trainer.train_songs(parse_arguments(argv))
 
-	for index, mood in enumerate(moods):
-		print "Processing songs for {} mood".format(mood)
-		mood_songs = dataset_manipulation.get_songs('midis/' + mood)
-		mood_label = []
-		for _ in moods:
-			mood_label.append(0)
+""" Parses Command Line arguments
 
-		mood_label[index] = 1
+Parses and returns relevant data from command line arguments
+"""
+def parse_arguments(argv):
+	force_reload = False
 
-		songs.extend(mood_songs)
-		for _ in range(len(mood_songs)):
-			labels.append(mood_label)
-	# songs = dataset_manipulation.get_songs('midis/')
+	try:
+		opts, args = getopt.getopt(argv, "hf:",["force="])
+	except getopt.GetoptError:
+		print "\n\ntrainer.py -f\n\n"
+		sys.exit(2)
 
-	print "{} songs processed".format(len(songs))
+	for opt, arg in opts:
+		if opt == "-h":
+			print "\n\ntrainer.py -f\n\n"
+			sys.exit()
+		elif opt in ("-f", "--force"):
+			force_reload = True
 
-	computation_graph.train_songs(songs, labels)
+	return force_reload
 
 if __name__ == '__main__':
-	main()
+	main(sys.argv[1:])

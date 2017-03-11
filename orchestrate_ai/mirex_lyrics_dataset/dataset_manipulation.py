@@ -12,7 +12,7 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
 LYRICS_DIR = "lyrics/"
-LEXICON_PICKLE_FILE = "moodset_cache/lexicon.pickle"
+LEXICON_PICKLE_FILE = "_moodset_cache/lexicon.pickle"
 APPROX_COMMON_WORDS_COUNT = 1000
 APPROX_UNIQUE_WORDS_COUNT = 30
 

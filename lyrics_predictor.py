@@ -1,10 +1,6 @@
 import sys
 import getopt
-from orchestrate_ai.mirex_lyrics_dataset import computation_graph, dataset_manipulation
-
-def classify_lyrics(lyrics):
-	feed_lyrics = dataset_manipulation.generate_feedable_lyrics_from_string(lyrics)
-	return computation_graph.classify_lyrics(feed_lyrics)[0]
+from orchestrate_ai.mirex_lyrics_dataset import predictor
 
 def main(argv):
 	lyrics = get_lyrics(argv)
@@ -13,12 +9,8 @@ def main(argv):
 		print "\n\nEmpty lyrics to predict. See help (-h)\n\n"
 		sys.exit()
 
-	moods = ['Aggressive','Bittersweet','Happy','Humorous','Passionate']
-
 	print "Predicting..."
-	prediction = classify_lyrics(lyrics)
-
-	print moods[prediction]
+	print predictor.predict_lyrics(lyrics)
 
 """ Gets lyrics from given arguments.
 

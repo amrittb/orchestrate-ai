@@ -5,4 +5,4 @@ echo "Use Python 2 currently because a dependency (python-midi) does not support
 pip install -r requirements.txt
 
 echo "Downloading NLTK data"
-(echo "import nltk"; echo "nltk.download('all')") | python
+(echo "import nltk"; echo "nltk.download(['wordnet','punkt'])") | python

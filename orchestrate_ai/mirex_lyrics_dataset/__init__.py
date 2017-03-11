@@ -1,1 +1,1 @@
-all = ['dataset_manipulation', 'computation_graph']
+__all__ = ['dataset_manipulation', 'computation_graph','predictor','trainer']
