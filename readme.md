@@ -31,9 +31,7 @@ mkvirtualenv orchestrate_ai --python=$(which python)
 
 * Install pip dependencies.
 ```sh
-pip install tensorflow
-pip install nltk
-pip install tqdm simplejson python-midi urllib3 
+pip install -r requirements.txt
 ```
 
 * Install youtube-dl
@@ -67,7 +65,7 @@ Run **lyrics_trainer.py** to train the given dataset. The dataset to be trained 
 python lyrics_trainer.py
 ```
 
-## Getting Confidence Score for MIREX MIDI Dataset
+## Getting Confidence Score for MIREX Lyrics Dataset
 Run **lyrics_predictor.py**.
 
 Available options:
