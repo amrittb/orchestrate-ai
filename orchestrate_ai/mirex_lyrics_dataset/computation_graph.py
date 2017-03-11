@@ -1,6 +1,8 @@
 import dataset_manipulation
 
 import numpy as np
+import glob
+
 import tensorflow as tf
 
 from tqdm import tqdm
@@ -61,8 +63,13 @@ def predict_lyrics(lyrics_feed):
 
 	with tf.Session() as sess:
 		saver = tf.train.Saver()
+		
+		if(len(glob.glob(GRAPH_SAVE_FILE + "*")) > 0):
+			save_path = saver.restore(sess, GRAPH_SAVE_FILE)
+		else:
+			train_lyrics()
+			predict_lyrics(lyrics_feed)
 
-		save_path = saver.restore(sess, GRAPH_SAVE_FILE)
 		prediction = tf.argmax(y,1)
 		return sess.run(prediction, feed_dict={x: [lyrics_feed]})
 

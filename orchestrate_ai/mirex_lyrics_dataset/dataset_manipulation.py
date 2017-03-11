@@ -1,3 +1,4 @@
+import os
 import glob
 import nltk
 import pickle
@@ -99,15 +100,18 @@ def generate_feedable_lyrics_from_string(lyrics_string, lexicon = None):
 Returns the parsed lexicon pickle
 """
 def parse_lexicon_pickle():
-	with open(LEXICON_PICKLE_FILE,"r") as file:
-		return pickle.load(file)
+	if not os.path.isfile(LEXICON_PICKLE_FILE):
+		return create_lexicon(get_moods())
+	else:
+		with open(LEXICON_PICKLE_FILE,"r") as file:
+			return pickle.load(file)
 
 """ Generates training and testing dataset
 
 Returns training and testing features and labels
 """
 def generate_train_test_dataset(testing_percentage=0.1):
-	classes = ["Aggressive","Bittersweet","Happy","Humorous","Passionate"]
+	classes = get_moods()
 	
 	lexicon = create_lexicon(classes)
 
@@ -147,3 +151,6 @@ def generate_moodset_pickle(pickle_file="moodset.pickle"):
 		dataset = [train_x, train_y, test_x, test_y]
 
 		pickle.dump(dataset, f)
+
+def get_moods():
+	return ["Aggressive","Bittersweet","Happy","Humorous","Passionate"]

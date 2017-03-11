@@ -45,9 +45,9 @@ sudo apt install youtube-dl
 All the code for web client goes inside **orchestrate_ai/webclient** module.
 
 To run dev server:
-'''sh
+```sh
 python runwebclient.py
-'''
+```
 
 ## Prepare Dataset
 For preparing data set run **prepare_dataset.py** script. It uses [simplejson](https://simplejson.readthedocs.io/en/latest/), [urllib3](https://urllib3.readthedocs.io/en/latest/) and [YouTube API](https://developers.google.com/youtube/) to download video list from [YouTube Audio Library](https://www.youtube.com/user/AudioLibraryEN) Channel. It then uses [youtube-dl](https://rg3.github.io/youtube-dl/) to download videos in audio format of **m4a** from the given list.
