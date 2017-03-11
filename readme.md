@@ -14,6 +14,7 @@ Orchestrate AI is a deep learning project which classifies music according to mo
 * [counter](https://docs.python.org/2/library/collections.html)
 * [tensorflow](https://tensorflow.org)
 * [nltk](http://www.nltk.org/)
+* [gunicorn](http://gunicorn.org)
 * [youtube-dl](https://rg3.github.io/youtube-dl/)
 
 ## Setup
@@ -39,6 +40,14 @@ pip install -r requirements.txt
 sudo apt update
 sudo apt install youtube-dl
 ```
+
+## Running Web Client
+All the code for web client goes inside **orchestrate_ai/webclient** module.
+
+To run dev server:
+'''sh
+python runwebclient.py
+'''
 
 ## Prepare Dataset
 For preparing data set run **prepare_dataset.py** script. It uses [simplejson](https://simplejson.readthedocs.io/en/latest/), [urllib3](https://urllib3.readthedocs.io/en/latest/) and [YouTube API](https://developers.google.com/youtube/) to download video list from [YouTube Audio Library](https://www.youtube.com/user/AudioLibraryEN) Channel. It then uses [youtube-dl](https://rg3.github.io/youtube-dl/) to download videos in audio format of **m4a** from the given list.
