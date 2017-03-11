@@ -1,0 +1,8 @@
+tensorflow==1.0.1
+nltk==3.2.2
+Counter==1.0.0
+python-midi==0.2.4
+simplejson==3.10.0
+tqdm==4.11.2
+urllib3==1.20
+Flask==0.12
