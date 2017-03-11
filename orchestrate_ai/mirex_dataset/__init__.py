@@ -1,1 +1,1 @@
-all = ['midi_manipulation', 'dataset_manipulation']
+all = ['midi_manipulation', 'dataset_manipulation', 'computation_graph']
