@@ -1,0 +1,53 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+	background-color: #263238;
+	color: white;
+	font-family: "Helvetica Neue", "Roboto", sans-serif;
+}
+
+.header {
+  position: relative;
+  width:100%;
+  height: auto;
+  color: white;
+}
+
+.header h1{
+  text-align: center;
+  font-size: 50px;
+  margin: 20px 0px;
+  color: #ECEFF1;
+  font-weight: 300;
+}
+
+#record-player {
+  width: 33%;
+  left: 33%;
+  top: 200px;
+  position: absolute;
+  height: auto;
+}
+
+#record-player img{
+  width: 100%;
+  height: auto;
+  background-color: rgb(221, 114, 240);
+  -webkit-animation-name:;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes rotate {
+	  from { 	-webkit-transform:rotate(0deg); }
+  to { -webkit-transform:rotate(360deg); }
+}
+
+@-webkit-keyframes spinx {
+	  from { 	-webkit-transform:rotatex(0deg); }
+  to { -webkit-transform:rotatex(360deg); }
+}

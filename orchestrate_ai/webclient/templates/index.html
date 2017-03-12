@@ -1,10 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Orchestrate AI Music Classifier</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orchestrate AI Music Mood Classifier</title>
+  <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap.min.css') }}>
+  <link rel="stylesheet" href={{ url_for('static', filename='css/style.css')}}>
+  <link rel="stylesheet" href={{ url_for('static', filename='css/normalize.css')}}>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+  <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 </head>
 <body>
-	<h1>Music Classifier</h1>
+  <div class="container">
+    <!-- Header -->
+    <div class="row">
+      <div class="col-md-12 header">
+        <h1>Orchestrate AI Music Mood Classifier</h1>
+      </div>
+    </div>
+
+    <div id="app">
+      {% with errors = get_flashed_messages(category_filter=['error']) %}
+      {% if errors %}
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="alert alert-danger" style="padding-left: 32px">
+              <ul>
+                {% for error in errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>  
+          </div>
+        </div>  
+      {% endif %}
+      {% endwith %}
+
+      {% with moods = get_flashed_messages(category_filter=['mood']) %}
+      {% if moods %}
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="alert alert-success" style="padding-left: 32px">
+              <ul>
+                {% for mood in moods %}
+                  <li>Predicted Mood is '{{ mood }}'</li>
+                {% endfor %}
+              </ul>
+            </div>  
+          </div>
+        </div>  
+      {% endif %}
+      {% endwith %}
+
+      <div class="row">
+        <div class="col-md-6 col-xs-12">
+          <h2 class="text-center"> Upload a MIDI file (mid)</h2>
+          <form action={{ url_for('upload_midi') }} method = "POST"
+         enctype = "multipart/form-data">
+            <input type="file" name="file" id="midi-file" class="inputfile inputfile-4" />
+            <br />
+            <button type="submit" class="btn btn-primary">Predict Mood</button>
+          </form>
+        </div>
+
+        <div class="col-md-6 col-xs-12">
+          <h2 class="text-center"> Upload a lyrics file (txt)</h2>
+          <form action={{ url_for('upload_lyrics') }} method = "POST"
+         enctype = "multipart/form-data">
+            <input type="file" name="file" id="lyrics-file" class="inputfile inputfile-4" />
+            <br />
+            <button type="submit" class="btn btn-primary">Predict Mood</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <br />
+    <div class="row">
+      <div class="col-xs-12">
+        <form action="{{ url_for('predict_lyrics_mood') }}" method="POST">
+          <div class="form-group">
+            <label for="lyrics">Enter a lyrics here.</label>
+            <textarea name="lyrics" id="lyrics" class="form-control" cols="30" rows="10"></textarea>  
+          </div>
+          <button type="submit" class="btn btn-primary">Predict Mood</button>      
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src={{ url_for('static', filename="js/upload.js")}}></script>
 </body>
 </html>
