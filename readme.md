@@ -2,6 +2,10 @@
 
 Orchestrate AI is a deep learning project which classifies music according to moods and generates music from given mood label.
 
+## Application Clients
+
+Orchestrate AI has a web client and an android client. The [web client](https://orchestrate-ai.herokuapp.com) is deployed in heroku and android client resides in [this repository](https://github.com/amrittb/orchestrate-ai-android).
+
 > Python 2.7 because a dependency (python-midi) does not support python 3.
 
 ## Dependencies
