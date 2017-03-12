@@ -56,14 +56,15 @@ def train_songs(force_reload=False):
 Predicts song from saved graph file
 """
 def predict_song(song):
-	x, y, y_ = build_computation_graph()
+	with tf.Graph().as_default():
+		x, y, y_ = build_computation_graph()
 
-	saver = tf.train.Saver()
+		saver = tf.train.Saver()
 
-	with tf.Session() as sess:
-		save_path = saver.restore(sess, GRAPH_SAVE_FILE)
-		prediction = tf.argmax(y,1)
-		return sess.run(prediction, feed_dict={x: [song]})
+		with tf.Session() as sess:
+			save_path = saver.restore(sess, GRAPH_SAVE_FILE)
+			prediction = tf.argmax(y,1)
+			return sess.run(prediction, feed_dict={x: [song]})
 
 """ Builds Computation graph
 

@@ -59,19 +59,20 @@ Predicts mood of lyrics from given lyrics feed
 def predict_lyrics(lyrics_feed):
 	lexicon = dataset_manipulation.parse_lexicon_pickle()
 
-	x, y, y_ = build_computation_graph(len(lyrics_feed), NUM_CLASSES)
+	with tf.Graph().as_default():
+		x, y, y_ = build_computation_graph(len(lyrics_feed), NUM_CLASSES)
 
-	with tf.Session() as sess:
 		saver = tf.train.Saver()
-		
-		if(len(glob.glob(GRAPH_SAVE_FILE + "*")) > 0):
-			save_path = saver.restore(sess, GRAPH_SAVE_FILE)
-		else:
-			train_lyrics()
-			predict_lyrics(lyrics_feed)
+		with tf.Session() as sess:
+			
+			if(len(glob.glob(GRAPH_SAVE_FILE + "*")) > 0):
+				save_path = saver.restore(sess, GRAPH_SAVE_FILE)
+			else:
+				train_lyrics()
+				predict_lyrics(lyrics_feed)
 
-		prediction = tf.argmax(y,1)
-		return sess.run(prediction, feed_dict={x: [lyrics_feed]})
+			prediction = tf.argmax(y,1)
+			return sess.run(prediction, feed_dict={x: [lyrics_feed]})
 
 """ Builds a computation graph.
 
