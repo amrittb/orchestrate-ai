@@ -1,5 +1,5 @@
 tensorflow==1.0.1
-nltk==3.2.2
+nltk==3.4.5
 Counter==1.0.0
 python-midi==0.2.4
 simplejson==3.10.0
