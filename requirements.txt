@@ -4,6 +4,6 @@ Counter==1.0.0
 python-midi==0.2.4
 simplejson==3.10.0
 tqdm==4.11.2
-urllib3==1.20
+urllib3==1.26.5
 Flask==0.12
 gunicorn==19.7.0
