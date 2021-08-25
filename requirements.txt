@@ -1,4 +1,4 @@
-tensorflow==1.0.1
+tensorflow==2.5.1
 nltk==3.2.2
 Counter==1.0.0
 python-midi==0.2.4
